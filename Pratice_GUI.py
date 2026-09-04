@@ -10,6 +10,13 @@ root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
 #weight=1 tells it if theres leftover space, give it to this row / collumn
 
+try:
+    with open("demofile.txt", "x") as file:
+        pass
+except FileExistsError:
+    pass
+
+
 def refreshListbox(listbox):
     listbox.delete(0, tk.END)
     with open("demofile.txt") as file:
@@ -217,10 +224,6 @@ startingScreen.tkraise()
 
 #The actually code behind the command
 
-try:
-    with open("demofile.txt", "x") as file:
-        pass
-except FileExistsError:
-    pass
+
 
 root.mainloop()
